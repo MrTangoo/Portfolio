@@ -41,7 +41,7 @@ const HeroSection: React.FC = () => {
         >
           <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-blue-500/10 flex items-center justify-center overflow-hidden">
             <img 
-              src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+              src="/me.jpg" 
               alt="Maxime Derbigny" 
               className="w-56 h-56 md:w-72 md:h-72 object-cover rounded-full border-4 border-white shadow-lg"
             />
@@ -49,16 +49,17 @@ const HeroSection: React.FC = () => {
         </motion.div>
       </div>
 
-      <motion.div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 1.5 }}
-      >
-        <a href="#about" className="flex flex-col items-center text-gray-500 hover:text-blue-500 transition-colors duration-300">
-          <span className="text-sm mb-1">Découvrir</span>
-          <ChevronDown className="h-6 w-6" />
-        </a>
-      </motion.div>
+<motion.div
+  className="absolute bottom-10 left-1/2 transform -translate-x-1/2 hidden md:flex"
+  animate={{ y: [0, 10, 0] }}
+  transition={{ repeat: Infinity, duration: 1.5 }}
+>
+  <a href="#about" className="flex flex-col items-center text-gray-500 hover:text-blue-500 transition-colors duration-300">
+    <span className="text-sm mb-1">Découvrir</span>
+    <ChevronDown className="h-6 w-6" />
+  </a>
+</motion.div>
+
     </section>
   );
 };

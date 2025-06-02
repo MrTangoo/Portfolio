@@ -79,7 +79,7 @@ const ProjectsSection: React.FC = () => {
               Vous voulez voir plus? Consultez tous mes projets sur GitHub.
             </p>
             <a 
-              href="https://github.com/votre-username" 
+              href="https://github.com/MrTangoo" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="btn btn-outline inline-flex items-center"

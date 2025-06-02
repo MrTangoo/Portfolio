@@ -10,13 +10,15 @@ const CVSection: React.FC = () => {
         <AnimatedSection>
           <div className="flex justify-between items-center mb-12">
             <h2 className="section-title">Mon parcours</h2>
+            {/*
             <a 
-              href="/cv.pdf" 
+              href="/" 
               download 
               className="btn btn-outline hidden md:flex items-center"
             >
               <Download className="h-4 w-4 mr-2" /> Télécharger CV
             </a>
+            */}
           </div>
         </AnimatedSection>
 
@@ -76,19 +78,19 @@ const CVSection: React.FC = () => {
                     <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 mr-2"></div>
                     <div>
                       <p className="font-medium">CFC en développement d'applications</p>
-                      <p className="text-sm text-gray-600">2024</p>
+                      <p className="text-sm text-gray-600">2025</p>
                     </div>
                   </li>
                 </ul>
               </div>
-              
+              {/*
               <a 
                 href="/cv.pdf" 
                 download 
                 className="btn btn-primary w-full flex items-center justify-center md:hidden"
               >
                 <Download className="h-4 w-4 mr-2" /> Télécharger CV
-              </a>
+              </a>*/}
             </div>
           </AnimatedSection>
         </div>

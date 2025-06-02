@@ -32,7 +32,7 @@ const AboutSection: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500">Langues</p>
-                    <p className="text-gray-800 font-medium">Français (natif), Anglais (B2)</p>
+                    <p className="text-gray-800 font-medium">Français (natif), Anglais (B1)</p>
                   </div>
                 </div>
                 
@@ -75,12 +75,12 @@ const AboutSection: React.FC = () => {
               <p className="leading-relaxed">
                 Je suis un jeune développeur passionné par la création d'applications web et mobiles. 
                 Fraîchement diplômé d'un CFC en développement d'applications, j'ai eu l'opportunité 
-                de travailler sur des projets concrets chez SBB-CFF-FFS et Reist Telecom AG.
+                de travailler sur des projets concrets chez SBB-CFF-FFS et au GRI.
               </p>
               <p className="leading-relaxed">
                 En parallèle de ma passion pour le code, je suis un fervent adepte du bodybuilding et du sport en général. 
-                Cette discipline m'a appris l'importance de la persévérance, de la rigueur et de la progression constante - 
-                des valeurs que j'applique également dans mon travail de développeur.
+                Cette discipline m'a appris l'importance de la persévérance, de la rigueur et de la progression constante. 
+                Des valeurs que j'applique également dans mon travail de développeur.
               </p>
               <p className="leading-relaxed">
                 Je suis particulièrement intéressé par le développement web frontend et backend, 

@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Mail, Github as GitHub, Linkedin, Send } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
+import emailjs from 'emailjs-com';
 
 type FormData = {
   name: string;
@@ -10,14 +11,26 @@ type FormData = {
 };
 
 const ContactSection: React.FC = () => {
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormData>();
-  
+  const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<FormData>();
+
   const onSubmit = async (data: FormData) => {
-    // This would normally send the form data to a backend
-    console.log('Form submitted:', data);
-    // Simulate API call
-    await new Promise(r => setTimeout(r, 1000));
-    alert('Message envoyé avec succès!');
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID!,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID!,
+        {
+          from_name: data.name,
+          from_email: data.email,
+          message: data.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY!
+      );
+      alert('Message envoyé avec succès !');
+      reset();
+    } catch (error) {
+      console.error('Erreur EmailJS:', error);
+      alert("Une erreur s'est produite. Merci de réessayer plus tard.");
+    }
   };
 
   return (
@@ -26,7 +39,7 @@ const ContactSection: React.FC = () => {
         <AnimatedSection>
           <h2 className="section-title">Me contacter</h2>
           <p className="text-gray-600 max-w-2xl mt-4">
-            Vous avez un projet intéressant ou une opportunité à discuter? N'hésitez pas à me contacter!
+            Vous avez un projet intéressant ou une opportunité à discuter ? N'hésitez pas à me contacter !
           </p>
         </AnimatedSection>
 
@@ -46,7 +59,7 @@ const ContactSection: React.FC = () => {
                 />
                 {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>}
               </div>
-              
+
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                   Email
@@ -56,17 +69,17 @@ const ContactSection: React.FC = () => {
                   type="email"
                   className={`w-full px-4 py-3 rounded-lg border ${errors.email ? 'border-red-500' : 'border-gray-300'} focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition`}
                   placeholder="votre.email@example.com"
-                  {...register('email', { 
-                    required: 'L\'email est requis',
+                  {...register('email', {
+                    required: "L'email est requis",
                     pattern: {
                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                       message: 'Adresse email invalide'
-                    } 
+                    }
                   })}
                 />
                 {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>}
               </div>
-              
+
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                   Message
@@ -80,9 +93,9 @@ const ContactSection: React.FC = () => {
                 ></textarea>
                 {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>}
               </div>
-              
-              <button 
-                type="submit" 
+
+              <button
+                type="submit"
                 disabled={isSubmitting}
                 className="btn btn-primary w-full flex items-center justify-center"
               >
@@ -96,11 +109,11 @@ const ContactSection: React.FC = () => {
               </button>
             </form>
           </AnimatedSection>
-          
+
           <AnimatedSection delay={0.4} className="flex flex-col justify-center">
             <div className="bg-white rounded-xl p-8 shadow-glass border border-gray-100">
               <h3 className="text-2xl font-semibold mb-6">Informations de contact</h3>
-              
+
               <div className="space-y-6">
                 <div className="flex items-center">
                   <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
@@ -108,47 +121,47 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500">Email</p>
-                    <a href="mailto:jean.dupont@example.com" className="text-gray-800 hover:text-blue-500 transition-colors">
-                      jean.dupont@example.com
+                    <a href="mailto:maxime.derbigny@gmail.com" className="text-gray-800 hover:text-blue-500 transition-colors">
+                      maxime.derbigny@gmail.com
                     </a>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center">
                   <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
                     <GitHub className="h-5 w-5 text-blue-500" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-500">GitHub</p>
-                    <a 
-                      href="https://github.com/jean-dupont" 
-                      target="_blank" 
+                    <a
+                      href="https://github.com/MrTangoo"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-800 hover:text-blue-500 transition-colors"
                     >
-                      github.com/jean-dupont
+                      github.com/MrTangoo
                     </a>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center">
                   <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
                     <Linkedin className="h-5 w-5 text-blue-500" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-500">LinkedIn</p>
-                    <a 
-                      href="https://linkedin.com/in/jean-dupont" 
-                      target="_blank" 
+                    <a
+                      href="https://www.linkedin.com/in/maxime-derbigny-13625b313/"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-800 hover:text-blue-500 transition-colors"
                     >
-                      linkedin.com/in/jean-dupont
+                      linkedin.com/in/maxime-derbigny
                     </a>
                   </div>
                 </div>
               </div>
-              
+
               <div className="mt-8 p-4 bg-blue-50 rounded-lg">
                 <p className="text-blue-700 text-sm">
                   "Disponible pour un stage, un job ou un projet passionnant ! N'hésitez pas à me contacter."

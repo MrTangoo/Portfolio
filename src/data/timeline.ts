@@ -20,26 +20,26 @@ export const educationTimeline: TimelineItem[] = [
     year: "2021–2024",
     title: "CFC Développement d'applications",
     subtitle: "SBB-CFF-FFS, Berne",
-    description: "Formation professionnelle en développement d'applications, avec spécialisation en applications web et mobiles."
+    description: "Formation professionnelle en développement d'applications, avec spécialisation en applications web."
   },
   {
     id: 4,
     year: "2024–2025",
     title: "CFC Développement d'applications",
-    subtitle: "Reist Telecom AG, Puidoux",
+    subtitle: "Groupement romand de l'informatique, Yverdon",
     description: "Poursuite de la formation professionnelle avec un focus sur les applications d'entreprise."
   }
 ];
 
 export const skills: string[] = [
-  "JavaScript/TypeScript",
-  "React/React Native",
-  "Vue.js",
+  "JavaScript / TypeScript",
+  "React",
+  "Next.js",
+  "Angular.js",
   "HTML/CSS",
   "Node.js",
   "PHP",
   "SQL",
   "Git",
   "Docker",
-  "REST API"
 ];

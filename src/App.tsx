@@ -10,7 +10,7 @@ import Footer from './components/Footer';
 function App() {
   // Update title when component mounts
   useEffect(() => {
-    document.title = 'Jean Dupont | Développeur d\'applications';
+    document.title = 'Maxime Derbigny | Développeur d\'applications';
   }, []);
 
   return (

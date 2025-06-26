@@ -4,6 +4,14 @@ export interface Project {
   description: string;
   image: string;
   technologies: string[];
+  category: 'web' | 'mobile' | 'fullstack';
+  featured: boolean;
+  date: string;
+  stats?: {
+    stars?: number;
+    views?: number;
+    forks?: number;
+  };
   links: {
     github?: string;
     demo?: string;
@@ -21,4 +29,5 @@ export interface TimelineItem {
 export interface Skill {
   name: string;
   level: number; // 1-5
+  category: string;
 }

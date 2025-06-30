@@ -1,6 +1,6 @@
 import React from 'react';
 import AnimatedSection from './AnimatedSection';
-import { timelineData } from '../data/timeline';
+import { educationTimeline } from '../data/timeline';
 
 const CVSection: React.FC = () => {
   return (
@@ -16,7 +16,7 @@ const CVSection: React.FC = () => {
               <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-blue-200"></div>
               
               <div className="space-y-12">
-                {timelineData.map((item, index) => (
+                {educationTimeline.map((item, index) => (
                   <div key={index} className="relative flex items-start">
                     {/* Timeline dot */}
                     <div className="absolute left-6 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg"></div>
@@ -28,27 +28,15 @@ const CVSection: React.FC = () => {
                           {item.title}
                         </h3>
                         <span className="text-sm text-blue-600 font-medium">
-                          {item.period}
+                          {item.year}
                         </span>
                       </div>
                       <h4 className="text-lg text-gray-600 mb-3">
-                        {item.company}
+                        {item.subtitle}
                       </h4>
                       <p className="text-gray-600 leading-relaxed">
                         {item.description}
                       </p>
-                      {item.technologies && (
-                        <div className="mt-4 flex flex-wrap gap-2">
-                          {item.technologies.map((tech, techIndex) => (
-                            <span
-                              key={techIndex}
-                              className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      )}
                     </div>
                   </div>
                 ))}
